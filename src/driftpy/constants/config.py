@@ -134,7 +134,8 @@ async def find_all_market_and_oracles(
         post = program.provider.connection._provider.session.post(
             program.provider.connection._provider.endpoint_uri,
             json=perp_request,
-            headers={"content-encoding": "gzip"},
+            #headers={"content-encoding": "gzip"},
+            headers={"Content-Type": "application/json"},
         )
 
         resp = await asyncio.wait_for(post, timeout=10)
@@ -163,7 +164,8 @@ async def find_all_market_and_oracles(
         post = program.provider.connection._provider.session.post(
             program.provider.connection._provider.endpoint_uri,
             json=spot_request,
-            headers={"content-encoding": "gzip"},
+            #headers={"content-encoding": "gzip"},
+            headers={"Content-Type": "application/json"},
         )
 
         resp = await asyncio.wait_for(post, timeout=10)
